@@ -9,7 +9,7 @@ font=require("gulp-iconfont"),
 browserify=require('gulp-browserify'),
 source=require("vinyl-source-stream"),
 buffer=require("vinyl-buffer");
-gulp.task("js",function(){
+gulp.task("jas",function(){
 gulp.src('modules/js/collections/*.js').
 pipe(uglify()).
 pipe(gulp.dest('Builds/development/js/'))
@@ -35,7 +35,9 @@ var cda={};
 
 });
 
-
+gulp.task('jade',['html','htmlbase']);
+gulp.task('js',['jas'])
+	
 gulp.task('styles', function() {
     gulp.src('modules/sass/modules/*.scss')
         .pipe(sass().on('error', sass.logError))
